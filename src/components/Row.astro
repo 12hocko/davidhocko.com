@@ -1,0 +1,10 @@
+---
+interface Props { label: string; class?: string }
+const { label, class: cls = '' } = Astro.props;
+---
+<section class:list={['wrap', cls]}>
+  <div class="row">
+    <h2 class="t-section m-0">{label}</h2>
+    <div class="min-w-0"><slot /></div>
+  </div>
+</section>

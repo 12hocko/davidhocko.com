@@ -1,0 +1,23 @@
+---
+import Img from './Img.astro';
+
+interface Props {
+  num?: string;
+  title: string;
+  image?: string;
+  alt?: string;
+  caption?: string;
+}
+const { title, image, alt = '', caption } = Astro.props;
+---
+<div>
+  <div class="grid gap-x-6 gap-y-3 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+    <h3 class="m-0 t-h3">{title}</h3>
+    <div class="t-lead"><slot /></div>
+  </div>
+  <figure class="m-0 mt-8 md:mt-10">
+    {image ? <Img id={image} alt={alt} sizes="(max-width: 1360px) 100vw, 1280px" /> : <slot name="media" />}
+
+  </figure>
+  <slot name="below" />
+</div>

@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+import Img from '../components/Img.astro';
+import CaseHead from '../components/CaseHead.astro';
+import Row from '../components/Row.astro';
+import NextProject from '../components/NextProject.astro';
+import ProjectFacts from '../components/ProjectFacts.astro';
+---
+<Base
+  title="Zen Flow · Dávid Hocko"
+  description="Prehľadnejší web pre jogové štúdio v Bratislave s integrovanou rezerváciou hodín."
+  active="praca"
+>
+  <CaseHead
+    title="Zen Flow: prehľadnejší web pre jogové štúdio v Bratislave"
+    intro="Zen Flow, štúdio na Račianskom mýte, ponúka lekcie jogy, gongovú meditáciu, zvukovú terapiu a workshopy."
+    hero="zen/1"
+    heroAlt="Stránky webu Zen Flow na desktope"
+    vt="hero-zen"
+  />
+
+  <Row label="Kontext" class="mt-16 md:mt-20">
+    <p class="t-lead m-0">Starý web mal nejasnú štruktúru a žiadnu vizuálnu identitu. Navrhol som nový layout a napísal texty. Web som spustil vo Wixe s integrovanou rezerváciou, aby si návštevníci vedeli hodinu rýchlo nájsť a zarezervovať.</p>
+  </Row>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <h2 class="t-section m-0 mb-12">Aplikácie</h2>
+      <figure class="m-0">
+        <Img id="zen/2" alt="Stránka o štúdiu na webe Zen Flow" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="zen/3" alt="Mobilná verzia webu Zen Flow" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="zen/4" alt="Ďalšie sekcie webu Zen Flow: benefity, galéria, kontakt" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+    </div>
+  </section>
+
+  <ProjectFacts facts={[
+      { label: 'Obdobie', value: '2025, freelance projekt' },
+      { label: 'Rola', value: 'Web dizajnér' },
+  ]}>
+    <div><dt class="lab mb-2.5">Živý web</dt><dd class="m-0 t-body"><a class="ulink" href="https://zenflow.sk" rel="noopener">zenflow.sk<Arrow dir="out" /></a></dd></div>
+  </ProjectFacts>
+
+  <NextProject href="asante-club.html" title="ASANTE club" line="Skincare značka od nuly po regál" image="asante/cover" alt="Tri modelky s pleťovými maskami ASANTE club" vt="hero-asante" />
+</Base>

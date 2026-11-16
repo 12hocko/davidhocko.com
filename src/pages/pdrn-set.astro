@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseHead from '../components/CaseHead.astro';
+import Row from '../components/Row.astro';
+import Img from '../components/Img.astro';
+import NextProject from '../components/NextProject.astro';
+import ProjectFacts from '../components/ProjectFacts.astro';
+---
+<Base
+  title="PDRN set · Dávid Hocko"
+  description="Vizuál, obaly a prémiový darčekový box pre nový rad ASANTE club s PDRN a peptidmi."
+  active="praca"
+>
+  <CaseHead
+    title='PDRN set: päť produktov v jednom prémiovom boxe'
+    intro="Obaly a launch nového radu ASANTE club s PDRN a peptidmi: čistiaci gél, pleťové tonikum, sérum, denný a nočný krém v jednom sete."
+    hero="pdrn/slide-1"
+    heroAlt="Produkty radu ASANTE PDRN s veľkým nápisom PDRN"
+    vt="hero-pdrn"
+  />
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="row">
+      <h2 class="t-section m-0">Kontext</h2>
+      <div class="min-w-0"><p class="t-lead m-0">PDRN set reagoval na aktuálny trend v skincare. PDRN je obľúbená zložka získavaná z DNA lososa a set ju kombinuje s peptidmi na regeneráciu pleti. Navrhol som vizuál nového radu, obaly pre päť produktov a darčekový box, v ktorom sa predávajú spolu.</p></div>
+    </div>
+    <figure class="m-0 mt-8 md:mt-10">
+      <Img id="pdrn/slide-4" alt="Produkty PDRN v ružovom prostredí" sizes="(max-width: 1360px) 100vw, 1280px" />
+    </figure>
+  </section>
+
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <h2 class="t-section m-0 mb-12">Aplikácie</h2>
+      <figure class="m-0">
+        <Img id="pdrn/slide-2" alt="Launch vizuál setu PDRN" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="pdrn/slide-8" alt="Obaly a produkty PDRN" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="pdrn/slide-5" alt="Kampaňový vizuál PDRN Novinky s kapsulami" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="pdrn/slide-6" alt="Produktové vizuály PDRN: sérum, tonikum, gél a nočný krém" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="pdrn/slide-7" alt="Bounce ball sérum PDRN" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <figure class="m-0 mt-3">
+        <Img id="pdrn/slide-3" alt="Prehľad produktov radu PDRN" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="row">
+      <h2 class="t-section m-0">Darčekový set<br />a tlač každého obalu</h2>
+      <div class="min-w-0"><p class="t-lead m-0">Päť produktov v jednom boxe tvorí kompletnú rutinu: čistiaci gél, pleťové tonikum, sérum, denný a nočný krém. Pre box aj samostatné krabičky krému, gélu a tonika som pripravil podklady pre tlač.</p></div>
+    </div>
+    <figure class="m-0 mt-8 md:mt-10">
+      <Img id="pdrn/keylines-1" alt="Výsekový podklad darčekového boxu PDRN, predná strana" sizes="(max-width: 1360px) 100vw, 1280px" />
+    </figure>
+    <figure class="m-0 mt-3">
+      <Img id="pdrn/keylines-2" alt="Výsekové podklady krabičiek pre krém, gél a tonikum" sizes="(max-width: 1360px) 100vw, 1280px" />
+    </figure>
+  </section>
+
+  <ProjectFacts facts={[
+      { label: 'Obdobie', value: '2026' },
+      { label: 'Rola', value: 'Brand dizajnér' },
+      { label: 'Rozsah', value: 'Dizajn obalov a darčekového boxu, podklady pre tlač, launch vizuály, prezentácia produktov' },
+      { label: 'Formáty', value: 'Darčekový box, krabičky pre krémy, sérum, gél a tonikum' },
+  ]} />
+
+  <NextProject href="swiss-re.html" title="Swiss Re" line="Interné kampane pre globálne tímy" image="swiss/6" alt="Vizuál Swiss Re o hybridnej spolupráci v Microsoft Teams" vt="hero-swiss" />
+</Base>

@@ -1,0 +1,30 @@
+---
+import Img from './Img.astro';
+import Arrow from './Arrow.astro';
+
+interface Fact { label: string; value: string }
+interface Props {
+  kicker?: string;
+  title: string;
+  intro?: string;
+  facts?: Fact[];
+  hero: string;
+  heroAlt: string;
+  vt: string;
+}
+const { kicker, title, intro, facts, hero, heroAlt, vt } = Astro.props;
+---
+<div class="bg-warm">
+<section class="wrap pt-14 pb-12 md:pt-[72px] md:pb-14">
+  <a href="index.html#praca" class="hit t-meta mb-12 inline-flex items-center text-mute hover:text-ink md:mb-14"><span class="arrow-left mr-1.5 inline-flex"><Arrow dir="left" /></span>Všetky práce</a>
+  {kicker && <p class="lab mb-5">{kicker}</p>}
+  <h1 class="m-0 mb-6 max-w-[1100px] t-display" set:html={title} />
+  {intro && <p class="case-intro m-0 max-w-[720px] t-lead text-body [text-wrap:balance]" set:html={intro} />}
+</section>
+</div>
+<div class="warm-split">
+  <div class="wrap">
+    <Img id={hero} alt={heroAlt} sizes="(max-width: 1360px) 100vw, 1280px" vt={vt} eager />
+  </div>
+</div>
+

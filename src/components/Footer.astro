@@ -1,0 +1,25 @@
+---
+interface Props { big?: boolean }
+const { big = true } = Astro.props;
+---
+<footer class="bg-warm mt-24 md:mt-28">
+<div class="wrap">
+  {big && (
+    <div class="row items-baseline pt-16 md:pt-20">
+      <p class="m-0 t-h3">Kontakt</p>
+      <div class="flex flex-wrap gap-x-10 gap-y-3 t-body pt-1">
+        <a class="ulink" href="mailto:dav.hocko@gmail.com">dav.hocko@gmail.com</a>
+        <a class="ulink" href="https://www.linkedin.com/in/davidhocko" rel="noopener">LinkedIn</a>
+        <a class="ulink" href="David-Hocko-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="ulink whitespace-nowrap" href="tel:+421948778057">+421&nbsp;948&nbsp;778&nbsp;057</a>
+      </div>
+    </div>
+  )}
+  {big && (
+    <div class="name-fit mt-16"><p class="name-display m-0" aria-hidden="true">Dávid Hocko</p></div>
+  )}
+  <div class:list={['lab flex items-baseline justify-between py-6 pb-8', big ? 'mt-6 border-t border-line' : 'pt-8']}>
+    <span class="url-display text-[14px]">davidhocko.com</span><span class="url-display text-[12px]">© 2026</span>
+  </div>
+</div>
+</footer>

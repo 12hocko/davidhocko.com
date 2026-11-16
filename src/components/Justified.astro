@@ -1,0 +1,20 @@
+---
+import images from '../data/images.json';
+import Img from './Img.astro';
+
+interface Item { id: string; alt: string; caption?: string }
+interface Props { items: Item[]; class?: string }
+
+const { items, class: cls = '' } = Astro.props;
+const lib = images as Record<string, { w: number; h: number }>;
+const ratios = items.map((it) => lib[it.id].w / lib[it.id].h);
+const total = ratios.reduce((a, b) => a + b, 0);
+---
+<div class:list={['justified', cls]}>
+  {items.map((it, i) => (
+    <figure style={`flex: ${ratios[i].toFixed(4)} 1 0%;`}>
+      <Img id={it.id} alt={it.alt} sizes={`(max-width: 640px) 100vw, ${Math.round((ratios[i] / total) * 100)}vw`} />
+
+    </figure>
+  ))}
+</div>

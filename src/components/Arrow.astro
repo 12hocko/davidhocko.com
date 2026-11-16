@@ -1,0 +1,11 @@
+---
+// Šípka kreslená ako SVG, lebo Zalando Sans šípky neobsahuje.
+interface Props { dir?: 'right' | 'left' | 'out' }
+const { dir = 'right' } = Astro.props;
+const paths = {
+  right: 'M2 8h11M9 4l4 4-4 4',
+  left: 'M14 8H3M7 4L3 8l4 4',
+  out: 'M4.5 11.5l7-7M5.5 4.5h6v6',
+};
+---
+<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" aria-hidden="true"><path d={paths[dir]} /></svg>

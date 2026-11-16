@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import motion from '../scripts/motion.js?raw';
+import bgfx from '../scripts/bgfx.js?raw';
+
+interface Props {
+  title: string;
+  description: string;
+  active?: 'praca' | 'o-mne';
+  bigFooter?: boolean;
+  warmHeader?: boolean;
+  noindex?: boolean;
+}
+const { title, description, active, bigFooter = true, warmHeader = true, noindex = false } = Astro.props;
+// Canonical address on davidhocko.com: "/" for the homepage, "/name.html" for the rest.
+const path = Astro.url.pathname.replace(/\/index(\.html)?$/, '/').replace(/^(\/[^/.]+)$/, '$1.html');
+const canonical = new URL(path, Astro.site).href;
+const shareImage = new URL('/og.jpg', Astro.site).href;
+---
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:site_name" content="Dávid Hocko" />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Every page opens at its top, unless the link points to a section (#…).
+      (function () {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var moved = false;
+        var mark = function () { moved = true; };
+        ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach(function (t) { addEventListener(t, mark, { passive: true, once: true }); });
+        var toTop = function (force) {
+          if (location.hash || (moved && !force)) return;
+          scrollTo(0, 0);
+          // When the page sits inside a taller frame, also bring the frame's top into view.
+          try { document.documentElement.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) {}
+        };
+        addEventListener('DOMContentLoaded', function () { toTop(true); });
+        addEventListener('load', function () { toTop(false); });
+        addEventListener('pageshow', function (e) { if (e.persisted) { moved = false; toTop(true); } });
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preload" href="fonts/zalando-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ZalandoSansExpanded-Black.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <Header active={active} warm={warmHeader} />
+    <main>
+      <slot />
+    </main>
+    <Footer big={bigFooter} />
+    <script is:inline set:html={motion} />
+    <script is:inline set:html={bgfx} />
+  </body>
+</html>

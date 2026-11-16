@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Justified from '../components/Justified.astro';
+import Row from '../components/Row.astro';
+
+const education = [
+  ['2018 – 2020', 'Mgr. art. · Vysoká škola výtvarných umení VŠVU, Bratislava', 'Vrátane semestra Erasmus na Maďarskej univerzite MKE, Budapešť, 2019'],
+  ['2014 – 2017', 'BcA. · Art & Design Institut ADI, Praha', 'Grafický dizajn & multimédiá'],
+  ['2013', 'Ročný program · Wiener Kunstschule, Viedeň', ''],
+];
+const experience = [
+  ['aug. 2023 – súčasnosť', 'Spoluzakladateľ · Brand manažér', 'ASANTE club'],
+  ['máj 2021 – okt. 2022', 'Grafický dizajnér · Digital Workplace', 'Swiss Re'],
+  ['nov. 2020 – mar. 2021', 'Grafický dizajnér · Spravodajstvo', 'RTVS (dnes STVR)'],
+];
+const skills: [string, [string, string][]][] = [
+  ['Jazyky', [['Slovenčina', 'materinský'], ['Angličtina', 'B2'], ['Nemčina', 'B1']]],
+  ['Dizajn', [['Photoshop', 'Adobe'], ['Illustrator', 'Adobe'], ['InDesign', 'Adobe'], ['Figma', '']]],
+  ['Kancelária a AI', [['Microsoft Office', ''], ['Google Workspace', ''], ['Claude', 'AI'], ['ChatGPT', 'AI']]],
+];
+---
+<Base
+  title="O mne · Dávid Hocko"
+  description="Dávid Hocko, dizajnér z Bratislavy. Spoluzakladateľ ASANTE club, predtým Swiss Re a RTVS."
+  active="o-mne"
+>
+  <div class="bg-warm pb-14 md:pb-20">
+  <section class="wrap pt-16 pb-10 md:pt-24 md:pb-12">
+    <p class="url-display m-0 mb-5 text-[15px] text-[var(--color-warm-label)] md:mb-6">O mne</p>
+    <h1 class="m-0 max-w-[1000px] t-display">Vizuálny dizajnér a brand manažér.</h1>
+  </section>
+
+  <section class="wrap">
+    <div class="grid items-center gap-x-12 gap-y-8 border-t border-line pt-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:pt-10">
+      <Img id="about/portrait-grey" alt="Dávid Hocko v sivom svetri na svetlom pozadí" sizes="(max-width: 768px) 100vw, 420px" class="md:order-2" eager />
+      <div class="max-w-[680px] t-lead">
+        <p class="m-0 mb-5">Od roku 2023 som spoluzakladateľ a brand manažér kozmetickej značky ASANTE club, ktorú nájdete v dm drogerie markt, 101&nbsp;drogéria a Müller. Navrhol som jej identitu aj všetky obaly a sortiment medzitým narástol z 5 na 33 produktov. Starám sa aj o kampane a texty.</p>
+        <p class="m-0 mb-5">Predtým som vo Swiss Re navrhoval internú komunikáciu pre globálne tímy. Pracovali sme prevažne v angličtine, v dvojtýždenných šprintoch. V RTVS (dnes STVR) som robil grafiku pre spravodajstvo.</p>
+        <p class="m-0">Grafický dizajn som študoval vo Viedni a v Prahe, magisterské štúdium som ukončil v roku 2020 na VŠVU v Bratislave. Dnes sa venujem hlavne dizajnu, brandingu a marketingu.</p>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <Row label="Vzdelanie" class="mt-16 md:mt-20">
+    <div class="t-body">
+      {education.map(([y, what, note]) => (
+        <div class="grid gap-x-6 gap-y-1 border-b border-line py-3.5 sm:grid-cols-[190px_minmax(0,1fr)]">
+          <span class="text-mute whitespace-nowrap">{y}</span>
+          <span>{what}{note && <><br /><span class="text-mute">{note}</span></>}</span>
+        </div>
+      ))}
+    </div>
+  </Row>
+
+  <Row label="Skúsenosti" class="mt-14 md:mt-16">
+    <div class="t-body">
+      {experience.map(([y, role, org]) => (
+        <div class="grid gap-x-6 gap-y-1 border-b border-line py-3.5 sm:grid-cols-[190px_minmax(0,1fr)]">
+          <span class="text-mute whitespace-nowrap">{y}</span>
+          <span>{role} <span class="text-mute whitespace-nowrap">· {org}</span></span>
+        </div>
+      ))}
+    </div>
+  </Row>
+
+  <Row label="Zručnosti" class="mt-14 md:mt-16">
+    <div class="grid gap-10 sm:grid-cols-3 sm:gap-8">
+      {skills.map(([group, items]) => (
+        <div>
+          <p class="lab m-0 mb-2">{group}</p>
+          <ul class="m-0 list-none border-t border-[var(--color-ink)] p-0 t-body">
+            {items.map(([name, note]) => (
+              <li class="flex justify-between gap-4 border-b border-line py-3"><span>{name}</span>{note && <span class="text-mute">{note}</span>}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Row>
+  <section class="wrap mt-16 md:mt-20">
+    <Justified items={[
+      { id: 'about/working-2', alt: 'Dávid Hocko pri práci za počítačom' },
+      { id: 'about/studies', alt: 'Dávid Hocko číta knihu Designing Brand Identity' },
+    ]} />
+  </section>
+</Base>

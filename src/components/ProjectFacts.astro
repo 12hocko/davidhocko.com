@@ -1,0 +1,18 @@
+---
+import Row from './Row.astro';
+
+interface Fact { label: string; value: string }
+interface Props { facts: Fact[] }
+const { facts } = Astro.props;
+---
+<Row label="O projekte" class="mt-16 md:mt-20">
+  <dl class="m-0 grid gap-x-6 gap-y-8 sm:grid-cols-2">
+    {facts.map((f) => (
+      <div>
+        <dt class="lab mb-2.5">{f.label}</dt>
+        <dd class="m-0 t-body" set:html={f.value} />
+      </div>
+    ))}
+    <slot />
+  </dl>
+</Row>

@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseHead from '../components/CaseHead.astro';
+import Row from '../components/Row.astro';
+import Decision from '../components/Decision.astro';
+import Img from '../components/Img.astro';
+import NextProject from '../components/NextProject.astro';
+import ProjectFacts from '../components/ProjectFacts.astro';
+
+const results = [
+  ['447 000 €', 'tržby v roku 2025'],
+  ['+60 %', 'medziročný rast predaja'],
+  ['33', 'produktov v aktuálnom predaji v 4 kategóriách'],
+  ['4 kanály', 'dm drogerie markt, Müller, 101\u00A0drogéria a online e-shop'],
+];
+---
+<Base
+  title="ASANTE club · Dávid Hocko"
+  description="Vizuálna identita, obaly a e-shop pre skincare značku ASANTE club: od pilotu s piatimi produktmi po 33 produktov v dm a Mülleri."
+  active="praca"
+>
+  <CaseHead
+    title="ASANTE club: Slovenská kozmetická značka, ktorá spája moderné zloženie, výrazný dizajn a dostupnú cenu."
+    intro="Vizuálna identita, obalový dizajn a e-shop. V ASANTE pôsobím ako spoluzakladateľ od roku 2023."
+    hero="asante/cover"
+    heroAlt="Tri modelky s pleťovými maskami ASANTE club: Collagen, Vitamin C a V-line lifting"
+    vt="hero-asante"
+  />
+
+  <Row label="Kontext" class="mt-16 md:mt-20">
+    <p class="t-lead m-0">ASANTE club prináša modernú starostlivosť o pleť a vlasy – textilné a bio-kolagénové masky, vlasové masky, čistiace a liftingové tampóny a kompletný set pre každodennú rutinu. Základom receptúr sú overené aktívne látky: kolagén, kyselina hyalurónová, niacínamid, retinol, vitamín C a aloe vera.</p>
+  </Row>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <div class="grid gap-x-6 gap-y-3 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+        <h2 class="t-section m-0">Kľúčové<br />rozhodnutia</h2>
+        <p class="t-lead m-0">Vlastná farba pre každý produkt. Každá z nich je navrhnutá individuálne, aby vystihla atmosféru jeho hlavnej zložky. Obal tak na regáli žiari a zákazníčka si ho ľahko zapamätá pri ďalšom nákupe.</p>
+      </div>
+      <figure class="m-0 mt-8 md:mt-10">
+        <Img id="asante/grid" alt="Prehľad pleťových masiek ASANTE v rôznych farbách" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <div class="mt-14 flex flex-col gap-14 md:mt-16 md:gap-16">
+        <Decision num="02" title="Neónové akcenty na minimalistickom obale">
+          Obal je jednoduchý a neónovou farbou zvýrazňuje kľúčovú látku produktu. Vďaka tomu nezapadne a presadí sa na plnom regáli konkurenčných značiek.
+          <div slot="media" class="grid gap-3 sm:grid-cols-2">
+            <Img id="asante/layout-1" alt="Kampaňový vizuál Aloe vera" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+            <Img id="asante/layout-3" alt="Kampaňový vizuál Collagen" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+            <Img id="asante/layout-4" alt="Kampaňový vizuál s dvoma modelkami" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+            <Img id="asante/layout-6" alt="Kampaňový vizuál Niacinamide" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+            <Img id="asante/layout-5" alt="Modelky s maskami Hyaluron na modrom pozadí" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+            <Img id="asante/layout-2" alt="Modelka s maskou na oranžovom pozadí" sizes="(max-width: 640px) 100vw, (max-width: 1360px) 50vw, 640px" />
+          </div>
+        </Decision>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <h2 class="t-section m-0 mb-12">Aplikácie</h2>
+
+      <figure class="m-0">
+        <Img id="asante/b2b" alt="Obchodná prezentácia ASANTE club pre partnerov" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+
+      <figure class="m-0 mt-12 md:mt-16">
+        <div class="flex flex-col gap-3">
+          <Img id="asante/eshop-1" alt="E-shop asante.club, prehľad stránok" sizes="(max-width: 1360px) 100vw, 1280px" />
+          <Img id="asante/eshop-2" alt="E-shop asante.club, produktová stránka" sizes="(max-width: 1360px) 100vw, 1280px" />
+          <Img id="asante/eshop-3" alt="E-shop asante.club na mobile" sizes="(max-width: 1360px) 100vw, 1280px" />
+          <Img id="asante/eshop-4" alt="E-shop asante.club, výber balenia" sizes="(max-width: 1360px) 100vw, 1280px" />
+        </div>
+      </figure>
+
+      <figure class="m-0 mt-12 md:mt-16">
+        <Img id="asante/hero" alt="Kampaň ASANTE club Vytvorené pre tvoj glow s modelkami a pleťovými maskami" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+
+      <figure class="m-0 mt-12 md:mt-16">
+        <div class="flex flex-col gap-3">
+          <Img id="asante/campaign" alt="Kampaňový layout ASANTE na fialovom pozadí" sizes="(max-width: 1360px) 100vw, 1280px" />
+          <Img id="asante/social" alt="Príspevky ASANTE pre sociálne siete" sizes="(max-width: 1360px) 100vw, 1280px" />
+        </div>
+      </figure>
+
+      <figure class="m-0 mt-12 md:mt-16">
+        <Img id="asante/lifestyle" alt="Ružová maska ASANTE Bio-collagen v lifestyle fotke" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+
+    </div>
+  </section>
+
+  <Row label="Výsledok" class="mt-16 md:mt-20">
+    <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2">
+      {results.map(([n, t]) => (
+        <div>
+          <p class="m-0 t-stat">{n}</p>
+          <p class="m-0 mt-3 max-w-[300px] t-body text-mute">{t}</p>
+        </div>
+      ))}
+    </div>
+    <figure class="m-0 mt-10 md:mt-12">
+      <Img id="asante/shelf" alt="Pleťové masky ASANTE na regáli v drogérii" sizes="(max-width: 900px) 100vw, 960px" />
+    </figure>
+  </Row>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <div class="grid gap-x-6 gap-y-3 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+        <h2 class="t-section m-0">Výraznejšie a čitateľnejšie logo</h2>
+        <p class="t-lead m-0">S rastúcim sortimentom sme zvažovali rebranding celej značky. Napokon sme vymenili len logo, aby bolo na obale aj online výraznejšie a čitateľnejšie. Prešli sme množstvom variantov, kým sme sa rozhodli pre súčasnú podobu.</p>
+      </div>
+      <figure class="m-0 mt-8 md:mt-10">
+        <Img id="asante/logo" alt="Logo ASANTE club s ochrannou zónou a farebnými variantmi" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <h2 class="t-section m-0 mb-12">Farebná paleta</h2>
+      <figure class="m-0">
+        <Img id="asante/colors" alt="Farebná paleta ASANTE club: Royal plum, Vivid magenta, Peach tint a ďalšie" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+    </div>
+  </section>
+
+  <ProjectFacts facts={[
+      { label: 'Obdobie', value: 'August 2023 – súčasnosť' },
+      { label: 'Rola', value: 'Spoluzakladateľ · Brand manažér' },
+      { label: 'Tím', value: '3 zakladatelia, UGC tvorcovia, fotografka Mafin Laurincová' },
+      { label: 'Rozsah', value: 'Vizuálna identita, obalový dizajn, e-shop, kampane, moodboardy pre fotenia, copytexty' },
+  ]} />
+
+  <NextProject href="pdrn-set.html" title="PDRN set" line="Obaly a launch nového radu" image="pdrn/slide-1" alt="Produkty radu ASANTE PDRN" vt="hero-pdrn" />
+</Base>

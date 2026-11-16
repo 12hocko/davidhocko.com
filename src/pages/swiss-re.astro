@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseHead from '../components/CaseHead.astro';
+import Row from '../components/Row.astro';
+import Decision from '../components/Decision.astro';
+import Img from '../components/Img.astro';
+import Justified from '../components/Justified.astro';
+import NextProject from '../components/NextProject.astro';
+import ProjectFacts from '../components/ProjectFacts.astro';
+---
+<Base
+  title="Swiss Re · Dávid Hocko"
+  description="Interné kampane, e-learning a vizuálne identity pre IT oddelenie globálnej zaisťovne Swiss Re."
+  active="praca"
+>
+  <CaseHead
+    title="Swiss Re: ako si tisíce zamestnancov osvojili nové nástroje Microsoftu"
+    intro="Interné kampane, e-learning a vizuálne identity pre IT oddelenie globálnej zaisťovne."
+    hero="swiss/6"
+    heroAlt="Vizuál Swiss Re o hybridnej spolupráci v Microsoft Teams"
+    vt="hero-swiss"
+  />
+
+  <Row label="Kontext" class="mt-16 md:mt-20">
+    <p class="t-lead m-0">Swiss Re je globálna zaisťovňa s viac ako 15 000 zamestnancami. Jej IT oddelenie Digital Workplace zavádzalo nové nástroje Microsoftu a migrovalo dáta. Zamestnanci tieto zmeny potrebovali pochopiť a začať používať. Vysvetľoval som ich tak, aby im rozumel aj človek, ktorý s IT nemá nič spoločné.</p>
+  </Row>
+
+  <section class="wrap mt-16 md:mt-20">
+    <div class="border-t border-line pt-6">
+      <div class="grid gap-x-6 gap-y-3 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+        <h2 class="t-section m-0">Windows Hello</h2>
+        <div class="t-lead">Windows Hello umožňuje prihlásiť sa do počítača tvárou alebo odtlačkom prsta. Chceli sme ho zamestnancom predstaviť ako koniec zdĺhavého prihlasovania každé ráno, preto vizuály stavili na pozitívnu energiu a ľahkosť. Heslo kampane znelo „Start your day with a smile“.</div>
+      </div>
+      <figure class="m-0 mt-8 md:mt-10">
+        <Img id="swiss/2" alt="Vizuál kampane Windows Hello: Unlock your device faster" sizes="(max-width: 1360px) 100vw, 1280px" />
+      </figure>
+      <div class="mt-3 flex flex-col gap-3">
+        <Justified items={[
+          { id: 'swiss/4', alt: 'Kampaň Say hello to Windows Hello s kolegami pri notebooku' },
+          { id: 'swiss/3', alt: 'Vizuál Start your day with a smile' },
+        ]} />
+        <Justified items={[
+          { id: 'swiss/5', alt: 'Dvaja kolegovia s motívom úsmevu' },
+          { id: 'swiss/1', alt: 'Kampaň Windows Hello na veľkoplošnej stene' },
+        ]} />
+      </div>
+      <div class="mt-14 flex flex-col gap-14 md:mt-16 md:gap-16">
+
+        <Decision num="02" title="Malá identita pre každý program" image="swiss/10" alt="Plagáty Home Office Market Pop-up v troch farbách">
+          Každý interný program dostal vlastnú vizuálnu identitu, ktorá bola jednotná naprieč rôznymi kanálmi, aby ju zamestnanci vedeli odlíšiť.
+        </Decision>
+
+        <Decision num="03" title="Nový obsah každé dva týždne" image="swiss/9" alt="Materiály pre stretnutia Digital Workplace Champions">
+          Pracovali sme v dvojtýždenných šprintoch, takže zamestnanci dostávali návody a pripomienky pravidelne počas celého zavádzania.
+          <div slot="below" class="mt-3">
+            <Justified items={[
+              { id: 'swiss/7', alt: 'Ilustrácia The future is hybrid' },
+            ]} />
+          </div>
+        </Decision>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap mt-3">
+    <figure class="m-0">
+      <Img id="swiss/8" alt="Vizuálna identita konferencie GoDigital Days" sizes="(max-width: 1360px) 100vw, 1280px" />
+    </figure>
+  </section>
+
+  <ProjectFacts facts={[
+      { label: 'Obdobie', value: 'Máj 2021 – október 2022' },
+      { label: 'Rola', value: 'Grafický dizajnér · Digital Workplace (IT)' },
+      { label: 'Tím', value: 'Medzinárodný komunikačný tím, 8 ľudí' },
+      { label: 'Rozsah', value: 'Interné kampane, newslettre, e-learningy, ilustrácie, šablóny, identity interných programov' },
+      { label: 'Spôsob práce', value: 'Agilne, dvojtýždenné šprinty, primárne v angličtine, hybridne' },
+  ]} />
+
+  <NextProject href="zen-flow.html" title="Zen Flow" line="Web pre jogové štúdio" image="zen/cover" alt="Mobilná verzia webu Zen Flow na dvoch telefónoch na zelenom pozadí" vt="hero-zen" />
+</Base>

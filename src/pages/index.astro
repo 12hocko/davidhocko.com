@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Img from '../components/Img.astro';
+
+
+---
+<Base
+  title="Dávid Hocko · Dizajnér"
+  description="Dizajnér z Bratislavy, spoluzakladateľ kozmetickej značky ASANTE club. Identity, obaly, kampane a weby."
+  active="praca"
+  warmHeader
+>
+  <section class="bg-warm">
+    <div class="wrap hero-warm">
+      <Img id="about/portrait" alt="Dávid Hocko v tmavomodrom saku" sizes="(min-width: 960px) 620px, 100vw" class="hero-warm__photo" position="50% 15%" fill eager />
+      <div class="hero-warm__text">
+        <div class="flex flex-col gap-7">
+          <h1 class="m-0 max-w-[720px] t-display">Dizajnér a spoluzakladateľ kozmetickej značky ASANTE club.</h1>
+          <p class="m-0 max-w-[560px] t-lead text-[var(--color-warm-body)]">Navrhujem identity, obaly, kampane a weby, ktoré pomáhajú predávať. Značku ASANTE club nájdete v sieti dm drogerie markt, 101 drogéria a Müller. Žijem a pracujem v Bratislave.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#praca" class="btn btn-solid">Pozrieť prácu</a>
+            <a href="David-Hocko-CV.pdf" target="_blank" rel="noopener" class="btn btn-line">Zobraziť CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap mt-20 scroll-mt-6 md:mt-28" id="praca">
+    <div class="border-t border-line pt-6 pb-6"><h2 class="t-section m-0">Vybrané práce</h2></div>
+
+    <div class="cards">
+      <ProjectCard
+        big
+        eager
+        href="asante-club.html"
+        title="ASANTE club"
+        line="Z pilotných 5 produktov v dm na 33 produktov a tržby 447-tisíc eur."
+        meta="Spoluzakladateľ &amp; Brand manažér | 2023 – súčasnosť"
+        image="asante/cover"
+        alt="Tri modelky s pleťovými maskami ASANTE club: Collagen, Vitamin C a V-line lifting"
+        vt="hero-asante"
+        sizes="(max-width: 1360px) 100vw, 1280px"
+      />
+      <ProjectCard
+        big
+        href="pdrn-set.html"
+        title="PDRN set"
+        line="Vizuál, obaly a prémiový darčekový box pre nový rad ASANTE s PDRN a peptidmi."
+        meta="Obalový dizajn &amp; launch produktov | 2026"
+        image="pdrn/slide-1"
+        alt="Produkty radu ASANTE PDRN s veľkým nápisom PDRN"
+        vt="hero-pdrn"
+        sizes="(max-width: 1360px) 100vw, 1280px"
+      />
+      <ProjectCard
+        big
+        href="swiss-re.html"
+        title="Swiss Re"
+        line="Interné kampane, vďaka ktorým si tisíce zamestnancov osvojili nové nástroje Microsoftu."
+        meta="Digital Workplace | 2021 – 2022"
+        image="swiss/6"
+        alt="Vizuál Swiss Re o hybridnej spolupráci v Microsoft Teams"
+        vt="hero-swiss"
+        sizes="(max-width: 1360px) 100vw, 1280px"
+      />
+      <ProjectCard
+        big
+        href="zen-flow.html"
+        title="Zen Flow"
+        line="Prehľadnejší web pre jogové štúdio v Bratislave s integrovanou rezerváciou hodín."
+        meta="Webová stránka pre jogové štúdio | 2025"
+        image="zen/cover"
+        alt="Mobilná verzia webu Zen Flow na dvoch telefónoch"
+        vt="hero-zen"
+        sizes="(max-width: 1360px) 100vw, 1280px"
+      />
+    </div>
+  </section>
+
+</Base>

@@ -1,0 +1,41 @@
+---
+import images from '../data/images.json';
+
+interface Props {
+  id: string;
+  alt: string;
+  sizes?: string;
+  class?: string;
+  /** Crop to this aspect ratio, e.g. "4 / 3". Defaults to the image's own. */
+  ratio?: string;
+  position?: string;
+  /** view-transition-name shared between a project card and its page hero */
+  vt?: string;
+  eager?: boolean;
+  /** Fill the parent box instead of keeping the aspect ratio. */
+  fill?: boolean;
+}
+
+const { id, alt, sizes = '100vw', class: cls = '', ratio, position = 'center', vt, eager = false, fill = false } = Astro.props;
+const im = (images as Record<string, { w: number; h: number; srcs: { w: number; src: string }[] }>)[id];
+if (!im) throw new Error(`Missing image: ${id}`);
+
+const srcset = im.srcs.map((s) => `${s.src} ${s.w}w`).join(', ');
+const fallback = im.srcs[Math.min(1, im.srcs.length - 1)].src;
+const ar = ratio ?? `${im.w} / ${im.h}`;
+const style = `${fill ? '' : `aspect-ratio: ${ar};`}${vt ? ` view-transition-name: ${vt};` : ''}`;
+---
+<div class:list={['img-frame', cls]} style={style}>
+  <img
+    src={fallback}
+    srcset={srcset}
+    sizes={sizes}
+    alt={alt}
+    width={im.w}
+    height={im.h}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : undefined}
+    style={`object-position: ${position};`}
+  />
+</div>

@@ -1,0 +1,21 @@
+---
+interface Props { active?: 'praca' | 'o-mne'; warm?: boolean }
+const { active, warm = false } = Astro.props;
+const nav = [
+  { key: 'praca', label: 'Práca', href: 'index.html#praca' },
+  { key: 'o-mne', label: 'O mne', href: 'o-mne.html' },
+  { key: 'cv', label: 'CV', href: 'David-Hocko-CV.pdf', blank: true },
+];
+---
+<header class:list={[warm && 'bg-warm']}>
+  <div class="wrap">
+    <div class:list={['flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-6 text-[15px]', !warm && 'border-b border-line']}>
+      <a href="index.html" class="hit name-display text-[15px] leading-none" aria-label="Dávid Hocko, domov">Dávid Hocko</a>
+      <nav class="flex items-center gap-6 md:gap-7" aria-label="Hlavná navigácia">
+        {nav.map((n) => (
+          <a href={n.href} target={n.blank ? '_blank' : undefined} rel={n.blank ? 'noopener' : undefined} class="hit ulink navlink" aria-current={active === n.key ? 'page' : undefined}>{n.label}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>

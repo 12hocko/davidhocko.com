@@ -1,0 +1,36 @@
+---
+import Arrow from './Arrow.astro';
+import Img from './Img.astro';
+import images from '../data/images.json';
+
+interface Props { href: string; title: string; line: string; image: string; alt: string; vt: string }
+const { href, title, line, image, alt, vt } = Astro.props;
+
+// Accent colour of each project's graphic: tints the glow and the image shadow.
+const tints: Record<string, string> = {
+  'asante/cover': '224 128 150',
+  'pdrn/slide-1': '208 31 155',
+  'swiss/6': '71 132 245',
+  'zen/1': '26 110 100',
+  'zen/cover': '20 110 96',
+};
+const tint = tints[image] ?? '160 130 110';
+const glow = (images as Record<string, { srcs: { w: number; src: string }[] }>)[image].srcs[0].src;
+---
+<section class="wrap mt-20 md:mt-24">
+  <a href={href} class="zoom next-card group" style={`--tint:${tint}`}>
+    <img class="next-card__glow" src={glow} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+    <div class="next-card__veil" aria-hidden="true"></div>
+    <div class="next-card__text">
+      <p class="next-card__kicker m-0">Ďalší projekt</p>
+      <div>
+        <p class="next-card__title m-0">{title}</p>
+        <p class="next-card__line m-0">{line}</p>
+        <span class="btn btn-solid next-card__btn">Pozrieť projekt<span class="ml-2 inline-flex"><Arrow /></span></span>
+      </div>
+    </div>
+    <div class="next-card__media">
+      <Img id={image} alt={alt} ratio="16 / 9" sizes="(max-width: 768px) 100vw, 760px" vt={vt} />
+    </div>
+  </a>
+</section>
